@@ -1,6 +1,6 @@
 {
     "name": "kalle/unicorns",
-    "description": "unicorn page",
+    "description": "unicorn page release1.0.0",
     "type": "prject",
     "require": {
         "monolog/monolog": "^1.23",
