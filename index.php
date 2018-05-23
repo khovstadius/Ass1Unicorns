@@ -12,9 +12,9 @@ $name = $_GET['name'];
 
 $client = new \GuzzleHttp\Client();
 
-$res = $client->request('GET', 'http://unicorns.idioti.se/' . $_GET['id'], [
-                         'headers' => [
-                         'Accept'     => 'application/json' ] ]);
+$res = $client->request('GET', 'http://unicorns.idioti.se/' , [ 'headers' => ['Accept' => 'application/json']]);
+                         
+                         
 	
 $data = json_decode($res->getBody(), true);
 ?>
@@ -55,8 +55,18 @@ $data = json_decode($res->getBody(), true);
                          
 					  $data = json_decode($res->getBody(), true);
 				      $log->info("Requested info about: " . $data['name']);
-					  $image = file_get_contents('http://unicorns.idioti.se/' . $_GET['id']);
-					  echo $image;
+					  //$image = file_get_contents('http://unicorns.idioti.se/' . $_GET['id']);
+					  //echo $image;
+					  
+					  echo "<img src='" . $data['image'] . "'>";
+					  echo "<h2>" . $data['name'] ."</h2>";
+					  echo "<p>". "Sågs " . $data['spottedWhen'] ."</p>";
+					  echo "<p>". "Rapporterad av " . $data['reportedBy'] ."</p>";
+					  echo "<p>". $data['description'] ."</p>";
+					  
+					  //print_r($data);
+					  
+					  
 					}
                     else
                     {
