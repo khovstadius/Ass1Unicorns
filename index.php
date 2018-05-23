@@ -7,7 +7,7 @@ use GuzzleHttp\Client;
 
 $log = new Logger('Ass1Logg');
 $log->pushHandler(new StreamHandler('viewLogger.log', Logger::INFO));
-$name = $_GET['name'];
+
 //$log->info($name);
 
 $client = new \GuzzleHttp\Client();
@@ -25,7 +25,7 @@ $data = json_decode($res->getBody(), true);
     <head>
         <title>Unicorns</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="background.css">
+        <link rel="stylesheet" type="text/css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     
@@ -78,7 +78,7 @@ $data = json_decode($res->getBody(), true);
 					<?php
 					for ($i=0; $i < count($data) - 5; $i++) 
 						{
-						echo "<h5>" . ($data[$i]['id']) . ": " . ($data[$i]['name']) .
+							 echo "<h5>" . ($data[$i]['id']) . ": " . ($data[$i]['name']) .
                              "<a href='index.php?id=".$data[$i]['id'].
                              "' class='btn btn-default' style='float:right;'>" . 
                              "Mer Information" . "</a>" .
